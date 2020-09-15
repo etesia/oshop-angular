@@ -1,0 +1,49 @@
+{{[checkoutList | json]}}
+
+<h1>Shopping Cart</h1>
+
+<div class="row col-10" >
+  <p>
+    You have ?? items in your shopping cart.
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-left">Product</th>
+        <th class="text-center" style="width: 230px">Quantity</th>
+        <th class="text-right" style="width: 200px">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of checkoutList; let i=index">
+        <td>
+          <div>
+          </div>
+        </td>
+        <td>
+          {{checkoutListKeys[i]}}
+        </td>
+        <td class="text-center">
+          <button>-</button>
+          {{c["nums"]}}
+          <button (click)="isAdd(checkoutListKeys[i])">+</button>
+        </td>
+        <td class="text-right">
+          {{c["price"] * c["nums"] | currency:'TWD':'symbol'}}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="text-right">MOney</th>
+      </tr>
+    </tfoot>
+  </table>
+  <button
+    (click)="clearCart()"
+    class="btn btn-sencandary btn-sm">Clear Shopping Cart</button>
+</div>
