@@ -25,9 +25,9 @@
           {{checkoutListKeys[i]}}
         </td>
         <td class="text-center">
-          <button>-</button>
-          {{c["nums"]}}
-          <button (click)="isAdd(checkoutListKeys[i])">+</button>
+        <button class="btn btn-sencondary">-</button>
+        {{c["nums"]}}
+        <button class="btn btn-sencondary" (click)="isAdd(checkoutListKeys[i])">+</button>
         </td>
         <td class="text-right">
           {{c["price"] * c["nums"] | currency:'TWD':'symbol'}}

@@ -33,7 +33,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
 
-   isAdd(productName) {
+  isAdd(productName) {
     console.log(productName);
     console.log(this.cartService.shoppingDict[productName]['nums']);
     this.cartService.shoppingDict[productName]['nums'] += 1;
