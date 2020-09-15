@@ -25,7 +25,7 @@
           {{checkoutListKeys[i]}}
         </td>
         <td class="text-center">
-        <button class="btn btn-sencondary">-</button>
+        <button class="btn btn-sencondary" (click)="isSub(checkoutListKeys[i])">-</button>
         {{c["nums"]}}
         <button class="btn btn-sencondary" (click)="isAdd(checkoutListKeys[i])">+</button>
         </td>
@@ -39,7 +39,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th class="text-right">MOney</th>
+        <th class="text-right">{{totalMoney}}</th>
       </tr>
     </tfoot>
   </table>

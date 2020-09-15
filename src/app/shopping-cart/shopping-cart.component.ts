@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit {
   totalItem: number;
   checkoutListKeys;
   checkoutList;
-
+  totalMoney = 0;
   constructor(public cartService: ShoppingcartService) {}
 
   ngOnInit () {
@@ -29,18 +29,43 @@ export class ShoppingCartComponent implements OnInit {
     for (let index = 0; index < this.checkoutListKeys.length; index++) {
       this.checkoutList.push(this.checkoutObj[this.checkoutListKeys[index]]);
       console.log(this.checkoutList);
+
     }
   }
 
 
   isAdd(productName) {
-    console.log(productName);
-    console.log(this.cartService.shoppingDict[productName]['nums']);
-    this.cartService.shoppingDict[productName]['nums'] += 1;
+    // console.log(productName);
+    // console.log(this.cartService.shoppingDict[productName]['nums']);
+    if (this.cartService.shoppingDict[productName]['nums'] < 99) {
+      this.cartService.shoppingDict[productName]['nums'] += 1;
+    }
+    this.checkTotalMoney ();
 
   }
 
- }
+
+  isSub(productName) {
+    // console.log(productName);
+    // console.log(this.cartService.shoppingDict[productName]['nums']);
+    if (this.cartService.shoppingDict[productName]['nums'] > 0) {
+      this.cartService.shoppingDict[productName]['nums'] -= 1;
+    }
+    this.checkTotalMoney ();
+  }
+
+
+  checkTotalMoney () {
+    this.totalMoney = 0;
+    for (let index = 0; index < this.checkoutList.length; index++) {
+      this.totalMoney += this.checkoutList[index]['price'] * this.checkoutList[index]['nums'];
+    }
+    console.log(this.checkoutList);
+  }
+
+
+
+}
 
 
 
