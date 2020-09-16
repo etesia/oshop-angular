@@ -9,11 +9,12 @@
           [class.active]="!category">
           All products</a>
 
-        <a *ngFor="let c of CategoryList$ | async"
-        routerLink="/"
-        [queryParams]="{ category: c.$key }"
-        class="list-group-item list-group-item-action list-group-item-info"
-        [class.active]="category===c.$key">
+        <a
+          *ngFor="let c of CategoryList$ | async"
+          routerLink="/"
+          [queryParams]="{ category: c.$key }"
+          class="list-group-item list-group-item-action list-group-item-info"
+          [class.active]="category===c.$key">
           {{ c.name }}
         </a>
       </div>
@@ -36,7 +37,6 @@
                   <div *ngIf="!cartDict[p.title]" id=text class="col-4">0 in cart</div>
                   <button (click)="isAdd(p.title, p.price)" class="btn btn-info col-4">+</button>
                 </div>
-
             </div>
           </div>
         </div>

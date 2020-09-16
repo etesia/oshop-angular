@@ -17,8 +17,7 @@ export class ShoppingcartService {
     if (this.shoppingDict[title]) {
       if (this.shoppingDict[title]['nums'] > 0) {
         this.shoppingDict[title]['nums'] -= 1;
-      }
-      else {
+      } else {
         this.shoppingDict[title]['nums'] = 0;
       }
     }

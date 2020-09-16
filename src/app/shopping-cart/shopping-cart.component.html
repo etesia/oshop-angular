@@ -1,10 +1,11 @@
-{{[checkoutList | json]}}
+<!-- {{[checkoutList | json]}} -->
+<br>
 
-<h1>Shopping Cart</h1>
-
+<h1 style="color: #54b4d1">Shopping Cart</h1>
+<br>
 <div class="row col-10" >
   <p>
-    You have {{totalItems}} items in your shopping cart.
+    You have <span id="totalItemText">{{totalItems}}</span> items in your shopping cart.
   </p>
   <table class="table">
     <thead>
@@ -19,7 +20,7 @@
       <tr *ngFor="let c of checkoutList; let i=index">
         <td style="vertical-align: middle">
           <div>
-            <button (click)="itemDelete()"class="btn btn-warning">
+            <button (click)="itemDelete(c, i, checkoutListKeys, checkoutList)"class="btn btn-warning">
               Delete
             </button>
           </div>
@@ -53,7 +54,7 @@
         </th>
         <th></th>
         <th class="text-right">
-          <button class="btn btn-info">
+          <button routerLink="/my/orders" class="btn btn-info">
             Checkoout
             <i id="checkoutIcon" class="material-icons">
               receipt_long

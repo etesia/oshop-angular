@@ -14,13 +14,14 @@ export class ShoppingCartComponent implements OnInit {
   checkoutListKeys;
   checkoutList;
   totalMoney = 0;
-  totalItems;
+  totalItems = 0;
   constructor(public cartService: ShoppingcartService) {}
 
   ngOnInit () {
 
     // build an arry for object(that is cartService.shoppingDict)
     this.checkoutObj = this.cartService.shoppingDict;
+    console.log(this.cartService.shoppingDict);
     // Step 1. Get all the object keys.
     this.checkoutListKeys = Object.keys(this.checkoutObj);
     // Step 2. Create an empty array.
@@ -28,7 +29,6 @@ export class ShoppingCartComponent implements OnInit {
     // Step 3. Iterate throw all keys.
     for (let index = 0; index < this.checkoutListKeys.length; index++) {
       this.checkoutList.push(this.checkoutObj[this.checkoutListKeys[index]]);
-      console.log(this.checkoutList);
     this.checkTotalMoneyTotleItems ();
 
     }
@@ -66,12 +66,22 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   clearCart() {
+    for (let index = 0; index < this.checkoutList.length; index++){
+      this.checkoutList[index]['nums'] = 0; // 先歸零所有商品數量後，再全部Clear 確保Stroe頁面的數量有被 reset to 0
+    }
+    this.cartService.shoppingDict = []; // 清空Service內的物件
     this.checkoutList = [];
     this.totalMoney = 0;
+    this.totalItems = 0;
   }
 
-  itemDelete(){
-    console.log(this.checkoutList[0]);
+  itemDelete(c, i, checkoutListKeys, checkoutList) { // 給 list 然刪除 index
+    // first step 先歸零 cartService (Store 頁面的數量是根據cartService 會被改為 0)
+    this.cartService.shoppingDict[checkoutListKeys[i]]['nums'] = 0;
+    delete this.cartService.shoppingDict[this.checkoutListKeys[i]];
+    this.checkTotalMoneyTotleItems ();
+    this.ngOnInit ();
+
   }
 
 

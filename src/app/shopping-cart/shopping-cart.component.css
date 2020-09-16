@@ -14,3 +14,10 @@
   padding-top: 2px;
 }
 
+
+#totalItemText {
+  border-radius: 100px;
+  background: #fdcc72;
+  padding: 8px;
+  width: 15px;
+}
