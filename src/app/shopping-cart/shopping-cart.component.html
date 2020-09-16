@@ -17,11 +17,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let c of checkoutList; let i=index">
-        <td>
+        <td style="vertical-align: middle">
           <div>
+            <button (click)="itemDelete()"class="btn btn-warning">
+              Delete
+            </button>
           </div>
         </td>
-        <td [ngClass]="c['nums']>0 ? 'null': 'lineThrough'" style="vertical-align: middle">{{checkoutListKeys[i]}}
+        <!-- <td [ngClass]="c['nums']>0 ? 'null': 'lineThrough'" style="vertical-align: middle">{{checkoutListKeys[i]}} -->
+        <td style="vertical-align: middle">{{checkoutListKeys[i]}}
         </td>
         <td class="text-center">
         <button class="btn btn-sencondary addSubbtn" (click)="isSub(checkoutListKeys[i])">-</button>

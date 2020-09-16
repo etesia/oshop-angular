@@ -63,12 +63,15 @@ export class ShoppingCartComponent implements OnInit {
       this.totalMoney += this.checkoutList[index]['price'] * this.checkoutList[index]['nums'];
       this.totalItems += this.checkoutList[index]['nums'];
     }
-    console.log(this.checkoutList);
   }
 
   clearCart() {
     this.checkoutList = [];
     this.totalMoney = 0;
+  }
+
+  itemDelete(){
+    console.log(this.checkoutList[0]);
   }
 
 
