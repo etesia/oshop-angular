@@ -1,4 +1,17 @@
 
-.dropdown-toggle { 
+.dropdown-toggle {
   cursor: pointer;
+}
+
+#shoppingIcon, #storeIcon {
+  font-size: 30px;
+}
+
+#shoppingIcon {
+  position: fixed;
+
+}
+#storeIcon {
+  position: fixed;
+  top: 21px;
 }

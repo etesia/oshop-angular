@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand" routerLink="/">Products</a>
+  <a class="navbar-brand nav-link" routerLink="/">Go to Store&nbsp;<span id="storeIcon" class="material-icons">
+    store
+    </span>&emsp;</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shopping-cart">Shopping Cart</a>
+        <a class="nav-link" id="shoppingText" routerLink="/shopping-cart">Shopping Cart&nbsp;<i id="shoppingIcon" class="material-icons">
+          shopping_cart
+          </i>&emsp;&emsp;&emsp;</a>
       </li>
       <li *ngIf="!user" class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
