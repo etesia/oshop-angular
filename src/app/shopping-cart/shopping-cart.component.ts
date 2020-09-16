@@ -11,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingCartComponent implements OnInit {
 
   checkoutObj;
-  totalItem: number;
   checkoutListKeys;
   checkoutList;
   totalMoney = 0;
+  totalItems;
   constructor(public cartService: ShoppingcartService) {}
 
   ngOnInit () {
@@ -29,6 +29,7 @@ export class ShoppingCartComponent implements OnInit {
     for (let index = 0; index < this.checkoutListKeys.length; index++) {
       this.checkoutList.push(this.checkoutObj[this.checkoutListKeys[index]]);
       console.log(this.checkoutList);
+    this.checkTotalMoneyTotleItems ();
 
     }
   }
@@ -40,7 +41,7 @@ export class ShoppingCartComponent implements OnInit {
     if (this.cartService.shoppingDict[productName]['nums'] < 99) {
       this.cartService.shoppingDict[productName]['nums'] += 1;
     }
-    this.checkTotalMoney ();
+    this.checkTotalMoneyTotleItems ();
 
   }
 
@@ -48,21 +49,27 @@ export class ShoppingCartComponent implements OnInit {
   isSub(productName) {
     // console.log(productName);
     // console.log(this.cartService.shoppingDict[productName]['nums']);
-    if (this.cartService.shoppingDict[productName]['nums'] > 0) {
+    if (this.cartService.shoppingDict[productName]['nums'] > 1) {
       this.cartService.shoppingDict[productName]['nums'] -= 1;
     }
-    this.checkTotalMoney ();
+    this.checkTotalMoneyTotleItems ();
   }
 
 
-  checkTotalMoney () {
+  checkTotalMoneyTotleItems () {
+    this.totalItems = 0;
     this.totalMoney = 0;
     for (let index = 0; index < this.checkoutList.length; index++) {
       this.totalMoney += this.checkoutList[index]['price'] * this.checkoutList[index]['nums'];
+      this.totalItems += this.checkoutList[index]['nums'];
     }
     console.log(this.checkoutList);
   }
 
+  clearCart() {
+    this.checkoutList = [];
+    this.totalMoney = 0;
+  }
 
 
 }

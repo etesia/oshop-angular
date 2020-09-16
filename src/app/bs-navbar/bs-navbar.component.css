@@ -3,15 +3,21 @@
   cursor: pointer;
 }
 
-#shoppingIcon, #storeIcon {
-  font-size: 30px;
+#shoppingIcon {
+  font-size: 26px;
 }
 
 #shoppingIcon {
   position: fixed;
+  padding-top: 4px;
 
 }
 #storeIcon {
+  font-size: 32px;
   position: fixed;
-  top: 21px;
+  top: 19px;
+}
+
+#storeText {
+  padding-top: 2px;
 }

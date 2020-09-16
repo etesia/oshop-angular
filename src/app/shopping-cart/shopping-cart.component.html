@@ -4,7 +4,7 @@
 
 <div class="row col-10" >
   <p>
-    You have ?? items in your shopping cart.
+    You have {{totalItems}} items in your shopping cart.
   </p>
   <table class="table">
     <thead>
@@ -21,15 +21,14 @@
           <div>
           </div>
         </td>
-        <td>
-          {{checkoutListKeys[i]}}
+        <td [ngClass]="c['nums']>0 ? 'null': 'lineThrough'" style="vertical-align: middle">{{checkoutListKeys[i]}}
         </td>
         <td class="text-center">
-        <button class="btn btn-sencondary" (click)="isSub(checkoutListKeys[i])">-</button>
+        <button class="btn btn-sencondary addSubbtn" (click)="isSub(checkoutListKeys[i])">-</button>
         {{c["nums"]}}
-        <button class="btn btn-sencondary" (click)="isAdd(checkoutListKeys[i])">+</button>
+        <button class="btn btn-sencondary addSubbtn" (click)="isAdd(checkoutListKeys[i])">+</button>
         </td>
-        <td class="text-right">
+        <td class="text-right" style="vertical-align: middle">
           {{c["price"] * c["nums"] | currency:'TWD':'symbol'}}
         </td>
       </tr>
@@ -39,11 +38,29 @@
         <th></th>
         <th></th>
         <th></th>
-        <th class="text-right">{{totalMoney}}</th>
+        <th class="text-right">{{totalMoney | currency:'TWD':'symbol'}}</th>
       </tr>
+      <tr>
+        <th></th>
+        <th class="text-left">
+          <button (click)="clearCart()" class="btn btn-sencandary">
+          Clear Shopping Cart
+          </button>
+        </th>
+        <th></th>
+        <th class="text-right">
+          <button class="btn btn-info">
+            Checkoout
+            <i id="checkoutIcon" class="material-icons">
+              receipt_long
+            </i>&emsp;
+          </button>
+        </th>
+      </tr>
+
     </tfoot>
   </table>
-  <button
-    (click)="clearCart()"
-    class="btn btn-sencandary btn-sm">Clear Shopping Cart</button>
-</div>
+
+
+
+
