@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { ShoppingcartService } from './shoppingcart.service';
 import { CategoryService } from './category.service';
 import { environment } from './../environments/environment';
@@ -21,6 +22,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsService } from './products.service';
+import { AuthGuardService } from './auth-guard.service';
+
 
 
 @NgModule({
@@ -49,13 +52,13 @@ import { ProductsService } from './products.service';
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'check-out', component: CheckOutComponent },
       { path: 'order-success', component: OrderSuccessComponent },
-      { path: 'my/orders', component: MyOrdersComponent },
+      { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
       { path: 'login', component: LoginComponent },
       { path: 'admin/products', component: AdminProductsComponent },
       { path: 'admin/orders', component: AdminOrdersComponent }
     ])
   ],
-  providers: [ProductsService, CategoryService, ShoppingcartService],
+  providers: [ProductsService, CategoryService, ShoppingcartService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

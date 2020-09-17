@@ -13,11 +13,12 @@
           shopping_cart
           </i>&emsp;&emsp;&emsp;</a>
       </li>
-      <li *ngIf="!user" class="nav-item">
+      <li *ngIf="!AuthService.user" class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li ngbDropdown *ngIf="user" class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+      <!-- *ngIf="user" 代表有User登入 才顯示選單 不然就上上面的login -->
+      <li ngbDropdown *ngIf="AuthService.user" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{AuthService.user.displayName}}</a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
           <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>

@@ -65,6 +65,7 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
+
   clearCart() {
     for (let index = 0; index < this.checkoutList.length; index++){
       this.checkoutList[index]['nums'] = 0; // 先歸零所有商品數量後，再全部Clear 確保Stroe頁面的數量有被 reset to 0
@@ -75,8 +76,9 @@ export class ShoppingCartComponent implements OnInit {
     this.totalItems = 0;
   }
 
+
   itemDelete(c, i, checkoutListKeys, checkoutList) { // 給 list 然刪除 index
-    // first step 先歸零 cartService (Store 頁面的數量是根據cartService 會被改為 0)
+    // 先歸零 cartService.shoppingDict 的數量 (Store 頁面的數量是根據cartService 會被改為 0)
     this.cartService.shoppingDict[checkoutListKeys[i]]['nums'] = 0;
     delete this.cartService.shoppingDict[this.checkoutListKeys[i]];
     this.checkTotalMoneyTotleItems ();

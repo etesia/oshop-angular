@@ -1,6 +1,8 @@
+import { AuthService } from './../auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'bs-navbar',
@@ -8,15 +10,12 @@ import * as firebase from 'firebase';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
-  user: firebase.User;
 
-  constructor(private adAuth: AngularFireAuth) {
-    adAuth.authState.subscribe(user => this.user = user);
-
+  constructor(public AuthService: AuthService) {
   }
 
   logOut() {
-    this.adAuth.auth.signOut();
-    console.log("User is logout", this.user);
+    this.AuthService.logOut();
+    console.log("User is logout", this.AuthService.user);
   }
 }
