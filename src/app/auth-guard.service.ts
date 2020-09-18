@@ -11,7 +11,6 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private AuthService: AuthService, private router: Router) {
     this.hasUser = this.AuthService.user;
-    console.log("AUTH", this.hasUser);
    }
 
   canActivate (route, state: RouterStateSnapshot) {
