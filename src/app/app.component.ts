@@ -1,3 +1,5 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   products: any[];
+  user;
 
-  constructor() {}
 
 
 }
