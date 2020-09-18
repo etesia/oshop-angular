@@ -15,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
   checkoutList;
   totalMoney = 0;
   totalItems = 0;
-  constructor(public cartService: ShoppingcartService) {}
+  constructor(public cartService: ShoppingcartService) { }
 
   ngOnInit () {
 
@@ -88,6 +88,8 @@ export class ShoppingCartComponent implements OnInit {
 
 
 }
+
+
 
 
 
