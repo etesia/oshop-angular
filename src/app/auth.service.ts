@@ -17,6 +17,7 @@ export class AuthService implements OnInit{
       this.user = user;
       let theReturnUrl = localStorage.getItem('theReturnUrl');
       router.navigate([theReturnUrl]);
+      localStorage.setItem('theReturnUrl', '/');
     });
   }
 
@@ -29,8 +30,6 @@ export class AuthService implements OnInit{
     this.returnUrl = this.route.snapshot.queryParamMap.get('theReturnUrl') || '/';
     localStorage.setItem('theReturnUrl', this.returnUrl);
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-
-
   }
 
   logOut() {
