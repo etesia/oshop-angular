@@ -32,6 +32,7 @@ export class AuthService implements OnInit{
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
+
   logOut() {
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('/login');

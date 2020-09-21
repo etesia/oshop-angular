@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate {
       console.log('user already login!')
       return true;
     } else {
-      console.log('user is not login yet!')
+      console.log('user is not login yet!');
       // 如果用戶未登入，就給一個queryParam，用以紀錄當前url
       this.router.navigate(['/login'], {queryParams: {theReturnUrl: state.url}});
       return false;
