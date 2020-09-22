@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class ShoppingcartService {
 
   shoppingDict = {};
-  isAdd(title, price) {
+  onAdd(title, price) {
     if (!this.shoppingDict[title]) {
       this.shoppingDict[title] = {'price': price, 'nums': 0};
     }
@@ -13,7 +13,7 @@ export class ShoppingcartService {
     return this.shoppingDict;
   }
 
-  isSub(title, price) {
+  onSub(title, price) {
     if (this.shoppingDict[title]) {
       if (this.shoppingDict[title]['nums'] > 0) {
         this.shoppingDict[title]['nums'] -= 1;

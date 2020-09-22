@@ -33,10 +33,10 @@
               <p class="card-text">{{p.price | currency:'TWD':'symbol'}}</p>
 
                 <div class="row">
-                  <button (click)="isSub(p.title, p.price)" class="btn btn-info col-4">-</button>
+                  <button (click)="onSub(p.title, p.price)" class="btn btn-info col-4">-</button>
                   <div *ngIf="cartDict[p.title]" class="col-4 align-bottom">{{cartDict[p.title]['nums']}} in cart</div>
                   <div *ngIf="!cartDict[p.title]" class="col-4 align-bottom">0 in cart</div>
-                  <button (click)="isAdd(p.title, p.price)" class="btn btn-info col-4">+</button>
+                  <button (click)="onAdd(p.title, p.price)" class="btn btn-info col-4">+</button>
                 </div>
             </div>
           </div>

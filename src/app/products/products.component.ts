@@ -50,11 +50,11 @@ export class ProductsComponent {
     this.cartDict = this.cartService.shoppingDict;
   }
 
-  isAdd(title, price) {
-    this.cartDict = this.cartService.isAdd(title, price);
+  onAdd(title, price) {
+    this.cartDict = this.cartService.onAdd(title, price);
   }
 
-  isSub(title, price) {
-    this.cartDict = this.cartService.isSub(title, price);
+  onSub(title, price) {
+    this.cartDict = this.cartService.onSub(title, price);
   }
 }
